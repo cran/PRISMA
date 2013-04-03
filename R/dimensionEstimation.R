@@ -1,3 +1,4 @@
+if (getRversion() >= "2.15.1") globalVariables(c("low", "up"))
 # public methods
 estimateDimension = function(prismaData, alpha=0.05, nScrambleSamples=NULL) {
   N = length(prismaData$remapper)
@@ -28,7 +29,9 @@ estimateDimension = function(prismaData, alpha=0.05, nScrambleSamples=NULL) {
   norm = data$low[data$class == "norm"]
   scramble = data$up[data$class == "scramble"]
   dim = 2 * (match(TRUE, norm <= scramble) - 1)
-
+  if (dim == 0) {
+    warning("Not enough data for reasonable dimension estimation. Please adjust $dim according to your fallback heuristic!")
+  }
   ret = list(data=data, dim=dim, pca=pca)
   class(ret) = "prismaDimension"
   return(ret)
@@ -42,7 +45,6 @@ plot.prismaDimension = function(x, ...) {
 	dimData=x
   require(ggplot2)
   data = dimData$data
-
   p = ggplot(data, aes(x=x, y=var, ymin=low, ymax=up, color=class))
   p + geom_errorbar(width=2) + geom_line() 
 }
