@@ -1,8 +1,8 @@
 Package: PRISMA
 Type: Package
 Title: Protocol Inspection and State Machine Analysis
-Version: 0.2-6
-Date: 2017-02-27
+Version: 0.2-7
+Date: 2018-05-26
 Depends: R (>= 2.10), Matrix, gplots, methods, ggplot2
 Suggests: tm (>= 0.6)
 Author: Tammo Krueger, Nicole Kraemer
@@ -16,7 +16,7 @@ Description: Loads and processes huge text
     principal component analysis implementation which allows the processing of
     very big data sets even on desktop machines.
 License: GPL (>= 2.0)
-Packaged: 2017-02-27 21:20:17 UTC; tammok
 NeedsCompilation: no
+Packaged: 2018-05-26 15:51:57 UTC; tammok
 Repository: CRAN
-Date/Publication: 2017-02-28 00:34:16
+Date/Publication: 2018-05-26 22:01:47 UTC
